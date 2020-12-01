@@ -29,10 +29,7 @@ const compileCode = function (javascriptCode) {
     produceCachedData: true
   });
 
-  let bytecodeBuffer = (script.createCachedData && script.createCachedData.call) ?
-    script.createCachedData()
-    :
-    script.cachedData;
+  let bytecodeBuffer = script.cachedData ? script.cachedData : (script.createCachedData());
 
   return bytecodeBuffer;
 };
